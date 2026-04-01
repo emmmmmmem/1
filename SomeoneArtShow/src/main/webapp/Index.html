@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SomeoneArtShow</title>
+<link rel="stylesheet" href="style.css" >
+</head>
+<body>
+	<header>
+		<h1>SomeoneArtShow</h1>
+		<img alt="logo" src="iamges/logo.png" width="60" height="60">
+		<nav>
+			<ul>
+				<li> <a href="#Home">Home</a></li>
+				<li> <a href="#Slogn">SLogn</a></li>
+				<li> <a href="#ArtWorks">ArtWorks</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<section id="Home" class="Home">
+			<h2>SomeArtShow</h2>
+			<h3>This web shows other's works<br>Because I don't have any artwork</h3>
+			<p> <a href="#">To Know More</a></p>
+		</section>
+		<section id="Slogn" class="Slogn">
+			<p>"Art Unfolds,<br> Soul Awakens."</p>
+		</section>
+		<section id="ArtWorks" class="ArtWorks">
+			<div>
+				<img alt="《2017那个春天》，唐伟民，布面油画，2017年" src="iamges/《2017那个春天》，唐伟民，布面油画，2017年.png">
+				<h3>《2017那个春天》，唐伟民，布面油画，2017年</h3>
+				<p>苍茫高原上，藏地牧人与牦牛在厚重笔触中凝住了生命的坚韧与旷野的诗意</p>
+			</div>
+			<div>
+				<img alt="《冬日牧场》，宋仁伟，布面油画，2014年" src="iamges/《冬日牧场》，宋仁伟，布面油画，2014年.png">
+				<h3>《冬日牧场》，宋仁伟，布面油画，2014年</h3>
+				<p>头冠的珠饰与手中的野花，在暖棕色调里诉说着高原生命的坚韧与温柔。</p>
+			</div>
+			<div>
+				<img alt="《石榴花》，苏新，布面油画，2019年" src="iamges/《石榴花》，苏新，布面油画，2019年.png">
+				<h3>《石榴花》，苏新，布面油画，2019年</h3>
+				<p>白衣少女轻拈红花，在氤氲的林间光影里，将青春的静谧与温柔凝于笔端。</p>
+			</div>	
+		</section>
+	<div id="imgModal" class="img-modal">
+  		<span class="close-btn">&times;</span>
+  		<img class="modal-content" id="modalImg">
+  		<div id="imgCaption"></div>
+	</div>
+	<script>
+// 获取元素
+  		const modal = document.getElementById("imgModal");
+ 		const modalImg = document.getElementById("modalImg");
+ 		const captionText = document.getElementById("imgCaption");
+ 		const artImgs = document.querySelectorAll(".ArtWorks img");
+ 		const closeBtn = document.querySelector(".close-btn");
+// 遍历所有ArtWorks中的图片，绑定点击事件
+ 		 artImgs.forEach(img => {
+ 		   img.onclick = function() {
+   		   modal.style.display = "block";
+  		   modalImg.src = this.src; // 赋值点击的图片地址
+  		   captionText.textContent = this.alt; // 赋值图片的alt作为标题
+    		}
+  		});
+// 关闭按钮点击事件
+  		closeBtn.onclick = function() {
+  		modal.style.display = "none";
+  		}
+// 点击遮罩层关闭弹窗
+  		modal.onclick = function(e) {
+    		if (e.target === modal) {
+      		modal.style.display = "none";
+    		}
+  		}
+// 按ESC键关闭弹窗
+  		document.addEventListener('keydown', function(e) {
+    		if (e.key === 'Escape' && modal.style.display === 'block') {
+      			modal.style.display = 'none';
+    		}
+  		});
+</script>
+	</main>
+	<footer>
+		<p> 版权所有 © 2026 SomeoneArtShow. none rights reserved</p>
+	</footer>
+<script src="homeBgToggle.js"></script>
+</body>
+</html>

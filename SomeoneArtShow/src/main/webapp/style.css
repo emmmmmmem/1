@@ -1,0 +1,244 @@
+@charset "UTF-8";
+	*{
+	padding:0;
+	margin:0;
+	}
+/* logo和导航栏 */
+	header{
+		background-color:rgb(35,28,26,0.9);
+		height:80px;
+		width:100%;
+		position:fixed;
+	}
+	h1{
+		color:white;
+		position:absolute;
+		left:10vw;
+		top:0;
+		line-height:80px;
+	}
+	header img{
+		position:absolute;
+		left:3vw;
+		top:10px;
+	}
+	header ul{
+		position:absolute;
+		right:5vw;
+		top:0;
+		line-height:80px;
+	}
+	header li{
+		display:inline;
+		padding:12px 16px;
+		text-align: center;
+		text-align: center;
+	}
+	header a{
+		color:white;
+		text-decoration:none;
+		margin-right:4vw;
+	}
+/* 鼠标悬停于菜单时的动画效果 */
+	:root {
+ 		 --menu-bg: rgba(35, 28, 26, 0.9);
+  		--menu-hover: rgba(55, 45, 42, 0.95);
+	}
+	headeer li{
+		transition-property:transform;
+		transition-duration:0.3s;
+		transition-timing-function:ease;
+		
+	}
+	header li:hover{
+		background-color:var(--menu-hover);
+	}
+/* 封面 */
+	.Home {
+    	height: 95vh;
+    	background-image: url("iamges/background.png"); 
+    	background-repeat: no-repeat;
+    	background-size: cover;
+    	background-position: center;
+    	background-color: #f0f0f0; 
+    	display:flex;
+    	flex-direction:column;
+    	align-items:center;
+    	justify-content:center;
+	}
+	.Home h2{
+		color:White;
+		font-size:60px;
+		margin-top:60px;
+	}
+	.Home h3{
+		color:#FEF7E6;
+		font-size:18px;
+		margin:25px 0;
+	}
+	.Home a{
+		color:White;
+		text-decoration:none;
+		border:1px solid #ACACAC;
+		padding:10px 20px;
+		border-radius:5px;
+	}
+	.Home a:hover{
+		text-decoration:underline;
+	}
+/* 标语页 */
+	.Slogn{
+		background-color:#485652;
+		color:white;
+		height:250px;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+		font-size:20px;
+		line-height:1.8em;
+	}
+/* 图片展示页*/
+	.ArtWorks{
+		display:flex;
+		background-color:#EDE9DB;
+		justify-content:space-between;
+		align-items:center;
+		padding:50px 5vw 40px;
+		width:100%;
+		box-sizing: border-box;
+	}
+	.ArtWorks div{
+		width:280px;
+		text-align:center;
+	}
+	.ArtWorks img{
+		width:100%;
+	}
+	.ArtWorks h3{
+		font-size:20px;
+		margin:20px 0;
+	}
+	.ArtWorks p{
+		font-size:14px;
+		line-height:1.6em;
+	}
+/* 图片详细展示(放大）*/
+/* 图片放大模态框样式 */
+.img-modal {
+  display: none; /* 默认隐藏 */
+  position: fixed;
+  z-index: 1000; /* 确保在最上层 */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9); /* 黑色半透明遮罩 */
+}
+
+/* 放大后的图片容器 */
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  max-height: 80vh; /* 限制最大高度，避免超出视口 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 图片标题 */
+#imgCaption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 关闭按钮 */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: #bbb;
+  text-decoration: none;
+}
+
+/* 图片点击缩放过渡动画 */
+.modal-content, #imgCaption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform: translate(-50%, -50%) scale(0.1);}
+  to {transform: translate(-50%, -50%) scale(1);}
+}
+
+/* 响应式调整：小屏幕下图片宽度占90% */
+@media screen and (max-width: 767px) {
+  .modal-content {
+    max-width: 90%;
+  }
+}
+
+/* 给ArtWorks的图片添加鼠标指针样式，提示可点击 */
+.ArtWorks img {
+  cursor: pointer;
+  transition: transform 0.2s ease; /* 鼠标悬停轻微放大，增强交互感 */
+}
+
+.ArtWorks img:hover {
+  transform: scale(1.02);
+}
+/* 版权声明 */
+	footer{
+		background-color:#d6ccc2;
+		border:5px #9d8189 solid;
+		padding:30px 20px 50px;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+		font-size:20px;
+		line-height:1.8em;
+	}
+/* 响应式设计 */
+@media screen and (max-width:767px){
+	header ul{
+		display:none;
+	}
+	header h1{
+		left:50%;
+		transform:translateX(-50%);
+	}
+	.Home h2{
+		font-size:40px;
+	}
+	.ArtWorks img{
+		width:100%;
+	}
+	.ArtWorks{
+		flex-direction:column;
+	}
+	.ArtWorks div{
+	 margin-bottom:30px;
+	}
+}
